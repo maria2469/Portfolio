@@ -1,121 +1,123 @@
+"use client";
+import { motion } from "framer-motion";
+
+const projects = [
+    {
+        title: "OpsPilot — Smart Workflow Assistant",
+        img: "/images/opspilot.png",
+        desc: "OpsPilot automates workflow orchestration using LLM reasoning, API integration, and contextual task memory — enabling hands-free project management and operations.",
+        link: "https://github.com/maria2469/Opspilot",
+    },
+    {
+        title: "MediBot 0.2 — Vision + Voice AI Doctor",
+        img: "/images/medibot.png",
+        desc: "A multimodal AI agent capable of medical image analysis and voice conversation using Groq, ElevenLabs, and Gradio — bridging diagnostics and dialogue.",
+        link: "https://github.com/maria2469/Medi_Bot-0.2",
+    },
+    {
+        title: "LangGraph Chatbot — Contextual Reasoning",
+        img: "/images/langgraph-chatbot.png",
+        desc: "A real-time reasoning chatbot built with LangGraph, Streamlit, and FastAPI — showcasing persistent memory, contextual retrieval, and stateful thinking.",
+        link: "https://github.com/maria2469/Langraph_chatbot",
+    },
+    {
+        title: "YouTube AI Q&A — Conversational Video Search",
+        img: "/images/youtubebot.png",
+        desc: "An AI-driven Chrome extension that turns YouTube into a conversational experience — ask any question and get real-time contextual answers from transcripts.",
+        link: "https://github.com/maria2469/Youtube-Chatbot-Extension",
+    },
+    {
+        title: "DramaBot — Emotionally Intelligent Agent",
+        img: "/images/dramabot.png",
+        desc: "DramaBot combines emotional voice AI, narrative generation, and real-time empathy modeling — transforming conversations into creative performances.",
+        link: "https://drama-queen.vercel.app/",
+    },
+];
+
 const Projects = () => {
+    const doubled = [...projects, ...projects];
+
     return (
-        <section id="projects" className="my-16">
-            <h2 className="text-4xl font-bold text-purple-300 mb-8 text-center">Projects</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* First Aid App */}
-                <div className="bg-purple-800 p-6 rounded-xl shadow-md">
-                    <img
-                        src="/images/Firstaid.png"
-                        alt="First Aid App"
-                        className="w-full h-40 object-cover rounded-md"
-                    />
-                    <h3 className="text-2xl font-semibold text-white mt-4">First Aid App</h3>
-                    <p className="mt-2 text-gray-400">
-                        An app designed to provide both Image and text support to get first-aid instructions with AI integration and location services.
-                    </p>
-                    <a
-                        href="https://github.com/maria2469/App-life-aid"
-                        className="text-white bg-purple-600 mt-4 block hover:bg-purple-700 inline-block border-2 border-purple-300 rounded-lg px-4 py-2"
-                    >
-                        View Code
-                    </a>
-                </div>
+        <section
+            id="projects"
+            className="relative my-28 py-20 px-8 overflow-hidden 
+                 bg-gradient-to-b from-[#0a0a0a] via-[#141414] to-[#1a1a1a]
+                 border border-[#1e90ff33] rounded-3xl shadow-[0_0_40px_#00ffff33]"
+        >
+            {/* Subtle background movement */}
+            <motion.div
+                animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
+                transition={{ repeat: Infinity, duration: 30, ease: "easeInOut" }}
+                className="absolute top-10 left-10 w-[25rem] h-[25rem] bg-[#00ffff22] blur-3xl rounded-full"
+            />
+            <motion.div
+                animate={{ x: [0, -50, 0], y: [0, 40, 0] }}
+                transition={{ repeat: Infinity, duration: 40, ease: "easeInOut" }}
+                className="absolute bottom-10 right-10 w-[28rem] h-[28rem] bg-[#7b4ae244] blur-3xl rounded-full"
+            />
 
-                {/* MakaTalk App */}
-                <div className="bg-purple-800 p-6 rounded-xl shadow-md">
-                    <img
-                        src="/images/Makatalk.png"
-                        alt="MakaTalk App"
-                        className="w-full h-40 object-cover rounded-md"
-                    />
-                    <h3 className="text-2xl font-semibold text-white mt-4">MakaTalk</h3>
-                    <p className="mt-2 text-gray-400">
-                        An AI-powered sign language interpreter with webcam-based sign validation. Allows users to learn sign language with gifs, pictures, and AI integration.
-                    </p>
-                    <a
-                        href="https://github.com/kevin-v96/makoton-ai-tutor"
-                        className="text-white bg-purple-600 mt-4 block hover:bg-purple-700 inline-block border-2 border-purple-300 rounded-lg px-4 py-2"
-                    >
-                        View Code
-                    </a>
-                </div>
+            <h2 className="text-4xl font-bold mb-16 tracking-wide text-center text-[#00ffff] drop-shadow-[0_0_10px_#00ffffaa]">
+                Featured Projects
+            </h2>
 
-                {/* Carbon Hub */}
-                <div className="bg-purple-800 p-6 rounded-xl shadow-md">
-                    <img
-                        src="/images/CarbonHub.png"
-                        alt="Carbon Hub"
-                        className="w-full h-40 object-cover rounded-md"
-                    />
-                    <h3 className="text-2xl font-semibold text-white mt-4">Carbon Hub</h3>
-                    <p className="mt-2 text-gray-400">
-                        A responsive website designed to track and reduce carbon emissions. Allows user to use a carbon calculator to help in carbon trading.
-                    </p>
-                    <a
-                        href="https://github.com/Vishal-Rauniyar/CarbonHub"
-                        className="text-white bg-purple-600 mt-4 block hover:bg-purple-700 inline-block border-2 border-purple-300 rounded-lg px-4 py-2"
-                    >
-                        View Code
-                    </a>
-                </div>
+            <div className="relative w-full overflow-hidden">
+                <motion.div
+                    className="flex gap-10"
+                    animate={{ x: ["0%", "-50%"] }}
+                    transition={{
+                        repeat: Infinity,
+                        repeatType: "mirror",
+                        duration: 20,
+                        ease: "linear",
+                    }}
+                >
+                    {doubled.map((project, index) => (
+                        <motion.div
+                            key={`${project.title}-${index}`}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            whileHover={{
+                                scale: 1.05,
+                                boxShadow: "0 0 25px rgba(0, 255, 255, 0.25)",
+                            }}
+                            transition={{ type: "spring", stiffness: 150, damping: 15 }}
+                            className="min-w-[360px] md:min-w-[400px] bg-[#0f0f10] backdrop-blur-md
+                         border border-[#1e90ff33] rounded-2xl overflow-hidden 
+                         shadow-[0_0_20px_#00000055] hover:shadow-[0_0_25px_#00ffff33]
+                         transition-all duration-500 cursor-pointer"
+                        >
+                            <img
+                                src={project.img}
+                                alt={project.title}
+                                className="w-full h-56 object-cover rounded-t-2xl border-b border-[#1e90ff22]"
+                            />
+                            <div className="p-6 text-left">
+                                <h3 className="text-2xl font-semibold text-[#00ffff] mb-3">
+                                    {project.title}
+                                </h3>
+                                <p className="text-[#d0d0d0] text-sm leading-relaxed mb-5">
+                                    {project.desc}
+                                </p>
+                                <a
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block px-5 py-2 font-semibold text-sm 
+                             bg-[#1e90ff33] hover:bg-[#00ffff] hover:text-[#0a0a0a] 
+                             text-[#00ffff] rounded-xl border border-[#00ffff55]
+                             shadow-[0_0_15px_#00ffff55] hover:shadow-[0_0_25px_#00ffffaa]
+                             transition-all"
+                                >
+                                    View Project
+                                </a>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
 
-                {/* AI Tutor */}
-                <div className="bg-purple-800 p-6 rounded-xl shadow-md">
-                    <img
-                        src="/images/Aistudy.png"
-                        alt="AI Tutor"
-                        className="w-full h-40 object-cover rounded-md"
-                    />
-                    <h3 className="text-2xl font-semibold text-white mt-4">AI Tutor</h3>
-                    <p className="mt-2 text-gray-400">
-                        An AI-powered tutor built with Next.js to help students learn more effectively using API integration.
-                    </p>
-                    <a
-                        href="https://github.com/maria2469/AI-TUTOR"
-                        className="text-white bg-purple-600 mt-4 block hover:bg-purple-700 inline-block border-2 border-purple-300 rounded-lg px-4 py-2"
-                    >
-                        View Code
-                    </a>
-                </div>
-
-                {/* Pantry App */}
-                <div className="bg-purple-800 p-6 rounded-xl shadow-md">
-                    <img
-                        src="/images/Pantry.png"
-                        alt="Pantry App"
-                        className="w-full h-40 object-cover rounded-md"
-                    />
-                    <h3 className="text-2xl font-semibold text-white mt-4">Pantry App</h3>
-                    <p className="mt-2 text-gray-400">
-                        A web app to manage pantry items with Firebase for data storage, allowing users to add/remove items.
-                    </p>
-                    <a
-                        href="https://github.com/maria2469/pantry"
-                        className="text-white bg-purple-600 mt-4 block hover:bg-purple-700 inline-block border-2 border-purple-300 rounded-lg px-4 py-2"
-                    >
-                        View Code
-                    </a>
-                </div>
-
-                {/* Currency Converter */}
-                <div className="bg-purple-800 p-6 rounded-xl shadow-md">
-                    <img
-                        src="/images/Currency Converter.png"
-                        alt="Currency Converter"
-                        className="w-full h-40 object-cover rounded-md"
-                    />
-                    <h3 className="text-2xl font-semibold text-white mt-4">Currency Converter</h3>
-                    <p className="mt-2 text-gray-400">
-                        A currency converter app that uses APIs for accurate exchange rates and conversions.
-                    </p>
-                    <a
-                        href="https://github.com/maria2469/currency-converter"
-                        className="text-white bg-purple-600 mt-4 block hover:bg-purple-700 inline-block border-2 border-purple-300 rounded-lg px-4 py-2"
-                    >
-                        View Code
-                    </a>
-                </div>
+                {/* Edge fade effects */}
+                <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#0a0a0a] to-transparent pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#0a0a0a] to-transparent pointer-events-none"></div>
             </div>
         </section>
     );
