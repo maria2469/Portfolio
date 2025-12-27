@@ -4,6 +4,7 @@ import Services from "./components/Services";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 
 const App = () => {
@@ -19,7 +20,6 @@ const App = () => {
       <main className="px-8 py-16 pt-32 space-y-32">
         <Hero />
 
-        {/* Section Anchors */}
         <section id="services">
           <Services />
         </section>
@@ -34,6 +34,11 @@ const App = () => {
 
         <section id="projects">
           <Projects />
+        </section>
+
+        {/* NEW: Certifications Section */}
+        <section id="certifications">
+          <Certifications />
         </section>
 
         <section id="contact">
