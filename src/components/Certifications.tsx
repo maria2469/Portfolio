@@ -27,7 +27,6 @@ const certifications: Certification[] = [
         desc: "Comprehensive introduction to Python programming covering data structures, OOP, scripting, and automation fundamentals.",
         link: "https://www.coursera.org/account/accomplishments/verify/UM1ZM4QYQV63",
     },
-
 ];
 
 const Certifications = (): JSX.Element => {
@@ -44,12 +43,12 @@ const Certifications = (): JSX.Element => {
             <motion.div
                 animate={{ x: [0, 60, 0], y: [0, -40, 0] }}
                 transition={{ repeat: Infinity, duration: 35, ease: "easeInOut" }}
-                className="absolute top-10 left-10 w-[26rem] h-[26rem] bg-[#00ffff22] blur-3xl rounded-full"
+                className="absolute top-10 left-10 w-[26rem] h-[26rem] bg-[#00ffff22] blur-3xl rounded-full will-change-transform"
             />
             <motion.div
                 animate={{ x: [0, -60, 0], y: [0, 40, 0] }}
                 transition={{ repeat: Infinity, duration: 45, ease: "easeInOut" }}
-                className="absolute bottom-10 right-10 w-[28rem] h-[28rem] bg-[#7b4ae244] blur-3xl rounded-full"
+                className="absolute bottom-10 right-10 w-[28rem] h-[28rem] bg-[#7b4ae244] blur-3xl rounded-full will-change-transform"
             />
 
             <h2 className="text-4xl font-bold mb-16 tracking-wide text-center text-[#00ffff] drop-shadow-[0_0_10px_#00ffffaa]">
@@ -72,6 +71,7 @@ const Certifications = (): JSX.Element => {
                             key={`${cert.title}-${index}`}
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
                             whileHover={{
                                 scale: 1.05,
                                 boxShadow: "0 0 25px rgba(0, 255, 255, 0.25)",
@@ -85,6 +85,8 @@ const Certifications = (): JSX.Element => {
                             <img
                                 src={cert.img}
                                 alt={cert.title}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-56 object-cover rounded-t-2xl border-b border-[#1e90ff22]"
                             />
                             <div className="p-6 text-left">

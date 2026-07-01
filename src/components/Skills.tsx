@@ -30,12 +30,12 @@ const Skills = () => {
             <motion.div
                 animate={{ x: [0, 100, 0] }}
                 transition={{ repeat: Infinity, duration: 30, ease: "easeInOut" }}
-                className="absolute top-10 left-10 w-80 h-80 bg-[#00ffff22] blur-3xl rounded-full"
+                className="absolute top-10 left-10 w-80 h-80 bg-[#00ffff22] blur-3xl rounded-full will-change-transform"
             />
             <motion.div
                 animate={{ x: [0, -100, 0] }}
                 transition={{ repeat: Infinity, duration: 35, ease: "easeInOut" }}
-                className="absolute bottom-10 right-10 w-[26rem] h-[26rem] bg-[#1e90ff22] blur-3xl rounded-full"
+                className="absolute bottom-10 right-10 w-[26rem] h-[26rem] bg-[#1e90ff22] blur-3xl rounded-full will-change-transform"
             />
 
             <h2 className="relative text-5xl font-extrabold mb-14 tracking-wide text-[#00ffff] drop-shadow-[0_0_10px_#00ffffaa]">

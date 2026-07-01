@@ -1,11 +1,21 @@
+import { lazy, Suspense } from "react";
 import Navbar from "./Navbar";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Certifications from "./components/Certifications";
-import Contact from "./components/Contact";
+
+// Lazy-load everything below the fold so the initial bundle is smaller
+// and the hero renders immediately without waiting for heavy components.
+const Services      = lazy(() => import("./components/Services"));
+const About         = lazy(() => import("./components/About"));
+const Skills        = lazy(() => import("./components/Skills"));
+const Projects      = lazy(() => import("./components/Projects"));
+const Certifications = lazy(() => import("./components/Certifications"));
+const Achievements  = lazy(() => import("./components/Achievements"));
+const Contact       = lazy(() => import("./components/Contact"));
+
+// Minimal inline fallback — avoids an extra component import
+const SectionSkeleton = () => (
+  <div className="w-full h-48 rounded-3xl bg-[#0f0f10] animate-pulse border border-[#1e90ff11]" />
+);
 
 const App = () => {
   return (
@@ -18,32 +28,50 @@ const App = () => {
       <Navbar />
 
       <main className="px-8 py-16 pt-32 space-y-32">
+        {/* Hero is eagerly loaded — it is above the fold */}
         <Hero />
 
-        <section id="services">
-          <Services />
-        </section>
+        <Suspense fallback={<SectionSkeleton />}>
+          <section id="services">
+            <Services />
+          </section>
+        </Suspense>
 
-        <section id="about">
-          <About />
-        </section>
+        <Suspense fallback={<SectionSkeleton />}>
+          <section id="about">
+            <About />
+          </section>
+        </Suspense>
 
-        <section id="skills">
-          <Skills />
-        </section>
+        <Suspense fallback={<SectionSkeleton />}>
+          <section id="skills">
+            <Skills />
+          </section>
+        </Suspense>
 
-        <section id="projects">
-          <Projects />
-        </section>
+        <Suspense fallback={<SectionSkeleton />}>
+          <section id="projects">
+            <Projects />
+          </section>
+        </Suspense>
 
-        {/* NEW: Certifications Section */}
-        <section id="certifications">
-          <Certifications />
-        </section>
+        <Suspense fallback={<SectionSkeleton />}>
+          <section id="certifications">
+            <Certifications />
+          </section>
+        </Suspense>
 
-        <section id="contact">
-          <Contact />
-        </section>
+        <Suspense fallback={<SectionSkeleton />}>
+          <section id="achievements">
+            <Achievements />
+          </section>
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <section id="contact">
+            <Contact />
+          </section>
+        </Suspense>
       </main>
     </div>
   );

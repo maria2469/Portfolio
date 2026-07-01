@@ -55,12 +55,12 @@ const Services = () => {
             <motion.div
                 animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
                 transition={{ repeat: Infinity, duration: 20, ease: "easeInOut" }}
-                className="absolute top-10 left-10 w-80 h-80 bg-[#00ffff22] blur-3xl rounded-full"
+                className="absolute top-10 left-10 w-80 h-80 bg-[#00ffff22] blur-3xl rounded-full will-change-transform"
             />
             <motion.div
                 animate={{ x: [0, -100, 0], y: [0, 60, 0] }}
                 transition={{ repeat: Infinity, duration: 24, ease: "easeInOut" }}
-                className="absolute bottom-10 right-10 w-96 h-96 bg-[#1e90ff33] blur-3xl rounded-full"
+                className="absolute bottom-10 right-10 w-96 h-96 bg-[#1e90ff33] blur-3xl rounded-full will-change-transform"
             />
 
             <h2 className="text-5xl font-extrabold text-center mb-20 tracking-wide text-[#00ffff] drop-shadow-[0_0_20px_#00ffffaa]">
